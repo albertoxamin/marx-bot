@@ -3,6 +3,8 @@ const mio = /(?<!\w)(mio|tuo|suo|vostro)(?=\s|$)/gi;
 const mia = /(?<!\w)(mia|tua|sua|vostra)(?=\s|$)/gi;
 const miei = /(?<!\w)(miei|tuoi|suoi|vostri)(?=\s|$)/gi;
 const mie = /(?<!\w)(mie|tue|sue|vostre)(?=\s|$)/gi;
+const nasz = /(?<!\w)(mój|moj|twój|twoj|jej|jego|wasz|ich)(?=\s|$)/gi;
+
 
 module.exports = {
 	marxify: (msg) => {
@@ -13,6 +15,8 @@ module.exports = {
 		nms = nms.replace(mia, 'NOSTRA');
 		nms = nms.replace(miei, 'NOSTRI');
 		nms = nms.replace(mie, 'NOSTRE');
+		// Polish part
+		nms = nms.replace(nasz, 'NASZ');
 
 		return nms;
 	}
