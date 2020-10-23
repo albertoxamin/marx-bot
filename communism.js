@@ -3,6 +3,8 @@ const mio = /(?<!\w)(mio|tuo|suo|vostro)(?=\s|$)/gi;
 const mia = /(?<!\w)(mia|tua|sua|vostra)(?=\s|$)/gi;
 const miei = /(?<!\w)(miei|tuoi|suoi|vostri)(?=\s|$)/gi;
 const mie = /(?<!\w)(mie|tue|sue|vostre)(?=\s|$)/gi;
+const unser = /(?<!\w)(mein|dein|sein|ihr|euer)(?=\s|$)/gi;
+const unsere = /(?<!\w)(meine|deine|seine|ihre|eure|euere)(?=\s|$)/gi;
 const notre = /(?<!\w)(mon|ma|ton|ta|son|sa|votre|leur)(?=\s|$)/gi;
 const nos = /(?<!\w)(mes|tes|ses|vos|leurs)(?=\s|$)/gi;
 
@@ -15,6 +17,9 @@ module.exports = {
 		nms = nms.replace(mia, 'NOSTRA');
 		nms = nms.replace(miei, 'NOSTRI');
 		nms = nms.replace(mie, 'NOSTRE');
+		// German part
+		nms = nms.replace(unser, 'UNSER');
+		nms = nms.replace(unsere, 'UNSERE');
 		// French part
 		nms = nms.replace(notre, 'NOTRE');
 		nms = nms.replace(nos, 'NOS');
